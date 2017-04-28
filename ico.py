@@ -24,7 +24,9 @@ keyVal = 'Python.File\\DefaultIcon'
 key = OpenKey(HKEY_CLASSES_ROOT, keyVal, 0, KEY_ALL_ACCESS)
 SetValueEx(key, "", 0, REG_SZ, "C:\pyico\python.ico")
 CloseKey(key)
+# Remove the page.png file
+os.remove("page.png")
 # Creating setico.bat which will refresh the icons
 with open('setico.bat', 'w') as f:
-	f.write('cmd /k "ie4uinit.exe -show\nexit"')
+	f.write('ie4uinit.exe -show\nexit')
 print "Run setico.bat to refresh the icons!!!"
